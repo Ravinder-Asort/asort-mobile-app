@@ -110,7 +110,7 @@ export default class Signin extends React.Component{
         flexGrow: 0.5,
         justifyContent: 'center',
         width:'100%',
-        height:'10%'
+        height:'20%'
     },
     logo: {
         position: 'absolute',
