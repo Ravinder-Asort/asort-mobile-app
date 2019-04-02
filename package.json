@@ -6,13 +6,23 @@
     "ios": "expo start --ios",
     "eject": "expo eject"
   },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
+  },
+  "packagerOpts": {
+    "assetExts": ["ttf", "otf"]
+  },
   "dependencies": {
-    "expo": "^32.0.0",
-    "expo-font": "^4.0.0",
+    "expo": "^32.0.6",
+    "expo-font": "^1.1.0",
     "native-base": "^2.12.1",
+    "path": "^0.12.7",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-native-carousel-control": "^2.0.1"
+    "react-native-carousel-control": "^2.0.1",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

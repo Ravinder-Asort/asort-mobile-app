@@ -1,29 +1,38 @@
 import React,{ Component } from 'react';
-import  * as Font from 'expo-font';
+import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { Container, Button,Header,Left,Body,Right,Title ,Text,StyleProvider} from 'native-base';
-StyleSheet.setStyleAttributePreprocessor('fontFamily', Font.processFontFamily);
+
 import { StyleSheet, View,Image } from 'react-native';
 import Carousel from './Imageslider.js';
 import {StatusBar} from 'react-native';
+import { getSupportedVideoFormats } from 'expo/build/AR';
 
 
 
 export default class App extends React.Component {
 
-   async componentDidMount() {
-     await Font.loadAsync({
-      'Titi':require('./assets/fonts/TitilliumWeb-Regular.ttf'),
-      'Roboto': require('./node_modules/native-base/Fonts/Roboto.ttf'),
-       'Roboto_medium': require('./node_modules/native-base/Fonts/Roboto_medium.ttf'),
-      
+  constructor(props)
+  {
+
+    super(props);
+    this.state = {loading:true};
+  }
+
+ async componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require('./node_modules/native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('./node_modules/native-base/Fonts/Roboto_medium.ttf'),
       ...Ionicons.font,
     });
 
-    
+    this.setState({loading:false});
   }
-  
+
   render() {
+    if (this.state.loading) {
+        
+    
     
     return (
 
@@ -55,6 +64,8 @@ to change the way people shop fashion online</Text>
       
       <View style={styles.buttonView}>
 
+     
+
           <Button style={styles.signin}><Text style={{textAlign:'center' , flex:1}}>SIGN IN</Text></Button>  
           <Button style={styles.signin}><Text style={{textAlign:'center', flex:1}}>SIGN UP</Text></Button>  
 
@@ -67,6 +78,7 @@ to change the way people shop fashion online</Text>
      
     );
   }
+}
 }
 
 
@@ -118,7 +130,8 @@ backgroundColor:'#717171',
 height:60,
 borderRadius:0,
 borderRightWidth:0.5,
-borderColor:'#fff'
+borderColor:'#fff',
+fontFamily:'Roboto_medium'
 },
 
 buttonView: {
